@@ -1,0 +1,45 @@
+SASS Notes:
+Lect 1: 
+
+>> SASS has 2 extensions: .scss or .sass but, .scss is most commonly used. Both has some different syntax.
+>> We can write vanila/normal css inside .scss extension file.
+
+
+How to compile sass into css?
+>> Browser does not understand the SASS code hence we need to compile it into vanila css and for this we use live sass compiler package extension of VS code and then press Watch Sass button present at the bottom of VS code.
+
+
+How to install GULP?
+>> But we will use GULP which allows us to have features like tree shaking which removes the all unwanted styles and also we get the sass debug tool with GULP.
+>> For installing GULP use "npm i gulp gulp-sass sass -g --save-dev" command.
+>> Then create gulpfile.js file and write the boilerplate code there.
+>> Then run GULP command. 
+>> It will create the css folder and inside which there will be index.css file.
+>> Then link this file in index.html file above title.
+
+
+
+Creating variables in sass:
+>> For creating variables in sass use $ sign. For example: $primary: #326dee;
+>> For using that variable just use $. For example:  h1{color: $primary;}
+  
+
+Partial and Import:
+>> There might be very long sass file if you write all the sass in one file hence to avoid it we can use partial.
+>> There can be seperate file for variables, seperate for resets etc and we can combine all of those partial files into single root sass file.
+>> Now when we create the partial files to import those we have to use import.
+>> For importing the sass file write like this at the top of the file where you want to import it:
+@import 'variables';
+>> Note: While importing we do not need to write the .scss extension.
+
+
+Asterisk (*) use in gulpfile.js:
+>> If we want to create the single .css file then we can write index.scss in buildStyle and watchTask function.
+>> Pan jar tumhala jevdhya .scss ahet tevdhya .css file bnvaychya astil tar *.scss as lihaych.
+
+
+Partial and Import:
+CONTD
+>> * vaprlyavr variables.css file suddha compile hoil. And it will be empty because syntax is not understandable by .css file.
+>> Mag apan partial files compile karne thambvu shkto using "_". Means just write underscore before the name of the partial file. 
+>> Hence, while using partial files write _ before it. Not mandatory but we can use it to avoid it getting compiled in .css file.
