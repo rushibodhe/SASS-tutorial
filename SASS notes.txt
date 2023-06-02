@@ -43,3 +43,15 @@ CONTD
 >> * vaprlyavr variables.css file suddha compile hoil. And it will be empty because syntax is not understandable by .css file.
 >> Mag apan partial files compile karne thambvu shkto using "_". Means just write underscore before the name of the partial file. 
 >> Hence, while using partial files write _ before it. Not mandatory but we can use it to avoid it getting compiled in .css file.
+
+
+
+Shinobi structure:
+>> For creating shinobi css library we have to modify the gulpfile.js.
+>> Hence, added 'shinobi/**/*.scss' it means look for .scss files inside shinobi folder and **/ means also look inside its subfolders.
+
+
+Import orders:
+>> Keep variables and functions at the top level of import.
+>> Then keep the base after this.
+>> Then rest of your imports will come.
