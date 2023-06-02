@@ -55,3 +55,7 @@ Import orders:
 >> Keep variables and functions at the top level of import.
 >> Then keep the base after this.
 >> Then rest of your imports will come.
+
+
+Nested css: 
+>> We can nest our css styles instead of writing nested selector in sass.
