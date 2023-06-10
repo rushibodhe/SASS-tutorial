@@ -85,3 +85,28 @@ Then you can write like this: math.div($base-font-size, 4) it means division by 
 @debug math.div(10,3);
 @debug math.floor(5.6);
 @debug math.max(10px, 20px, 15px, 8px);
+
+
+
+map:
+>> It consists of key value pair same as object in js.
+>> You can create map like this: 
+    $colors: (
+        "blue": #1919e6,
+        "red": #e61919,
+        "yellow": #e6e619,
+        "green": #19e635
+    )
+>> There are some methods which you can use with map: 
+Note: While using the map methods do not give the space before the brackets.
+1. map-get --> Gives the value of the key. 
+example: @debug map-get($colors, "blue") --> prints #1919e6
+
+2. map-has-key --> Checks if we have any key in the map.
+example: @debug map-has-key($colors, "yellow") --> prints true and if key is not available then prints false.
+
+3. map-remove --> Removes the key from the map.
+example: @debug map-remove ($colors, "red") --> prints the whole map without "red" key.
+
+4. map-merge --> Adds the key to the map.
+example: @debug map-merge ($colors, ("pink": #ffc0cb)) --> prints the whole map without "red" key.
