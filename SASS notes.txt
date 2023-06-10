@@ -1,5 +1,6 @@
 SASS Notes:
-Lect 1: 
+
+Command used to run the code: gulp
 
 >> SASS has 2 extensions: .scss or .sass but, .scss is most commonly used. Both has some different syntax.
 >> We can write vanila/normal css inside .scss extension file.
@@ -59,3 +60,28 @@ Import orders:
 
 Nested css: 
 >> We can nest our css styles instead of writing nested selector in sass.
+
+
+Using Math in sass:
+>> We can use the variables that we have declared in sass and create another variable using multiplication.
+    like: 
+    $base-font-size: 1rem;
+    $font-size-sm: $base-font-size * 0.75;
+    $font-size-lg: $base-font-size * 1.5;
+    $font-size-xl: $base-font-size * 2;
+    $font-size-xxl: $base-font-size * 3;
+
+>> We can also do the division.
+For division we cannot directly write like this: $base-font-size/2 instead we need to use the math package.
+For using the math package write @use 'sass:math' at the top of the file in which you want to use the math.
+Then you can write like this: math.div($base-font-size, 4) it means division by 4.
+
+
+@debug: 
+>> For debugging sass in the console we can use @debug.
+>> It prints whatever you write after @debug in the console.
+>> For this you just need to write what you want to print after @debug like:
+@debug "hello world";
+@debug math.div(10,3);
+@debug math.floor(5.6);
+@debug math.max(10px, 20px, 15px, 8px);

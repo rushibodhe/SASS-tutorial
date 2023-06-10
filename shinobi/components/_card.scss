@@ -1,11 +1,14 @@
+@use 'sass:math'; // using sass:math package for using math.div method
+
 .card {
     display: block;
     padding: $base-padding;
     border: $base-border-thickness solid #ddd;
     box-shadow: $base-box-shadow;
+    border-radius: math.div($base-border-radius, 4); // using math.div method
   
     .card-title {
-      font-size: $base-font-size;
+      font-size: $font-size-lg;
       padding-bottom: $base-padding;
       font-weight: bold;
     }
@@ -18,3 +21,10 @@
       }
     }
   }
+
+
+  // @debug method: Prints in the console
+  @debug "Hello world";
+  @debug math.div(10,3);
+  @debug math.floor(5.6);
+  @debug math.max(10px, 20px, 15px, 8px);
