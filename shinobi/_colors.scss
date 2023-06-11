@@ -9,24 +9,28 @@
         background-color: $val;
     }
 
-    // Using @for loop for repeating 9 times:
-    @for $i from 1 through 9 {
-        // Creating light variations of the colors: 1 is least light and 9 is most light:
-        .text-#{$key}-light-#{$i} {
-            color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+    // Using @if conditional operator:
+    @if ($val != black and $val != white){ // Added this because we dont want to create the dark and light variations of the black and white color
+
+        // Using @for loop for repeating 9 times:
+        @for $i from 1 through 9 {
+            // Creating light variations of the colors: 1 is least light and 9 is most light:
+            .text-#{$key}-light-#{$i} {
+                color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+            }
+            .bg-#{$key}-light-#{$i} {
+                background-color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+            }
         }
-        .bg-#{$key}-light-#{$i} {
-            background-color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
-        }
-    }
-    
-    // Creating dark variations of the colors: 1 is least dark and 9 is most dark:
-    @for $i from 1 through 9 {
-        .text-#{$key}-dark-#{$i} {
-            color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
-        }
-        .bg-#{$key}-dark-#{$i} {
-            background-color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+        
+        // Creating dark variations of the colors: 1 is least dark and 9 is most dark:
+        @for $i from 1 through 9 {
+            .text-#{$key}-dark-#{$i} {
+                color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+            }
+            .bg-#{$key}-dark-#{$i} {
+                background-color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+            }
         }
     }
 }

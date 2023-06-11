@@ -146,3 +146,17 @@ How to iterate through the map:
 
 How to mix any color with any color in different proprtions?
 Ans --> mix(white, red, 10) --> It means mix 10% white color in red color 
+
+
+@if and @else conditional statements:
+>> It is same as programming if else conditions.
+Example: 
+    @if($val != white and $val != black){
+        .text-#{$key}{
+            color: $val;
+        }
+    }@else{
+        .text-#{$key}{
+            color: green;
+        }
+    }
