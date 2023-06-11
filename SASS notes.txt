@@ -110,3 +110,39 @@ example: @debug map-remove ($colors, "red") --> prints the whole map without "re
 
 4. map-merge --> Adds the key to the map.
 example: @debug map-merge ($colors, ("pink": #ffc0cb)) --> prints the whole map without "red" key.
+
+
+
+
+How to iterate through the map:
+@each method:
+>> For iterating over map we can use @each method.
+    Example: 
+    @each $key, $val in $colors{
+        .text-#{$key}{ // #{$key} it means adding variable in the css selector
+            color: $val;
+        }
+    }   
+>> This code will assign dynamic value to its dynamic key.
+>> For adding variable in css selector we can use #{$variable_name}
+
+
+@for method:
+>> For iterating on anything for more than 1 time we use @for method.
+    Example:
+    @each $key, $val in $colors{
+        .text-#{$key}{ // #{$key} it means adding variable in the css selector
+            color: $val;
+        }
+
+        @for $i from 1 through 9{
+            .text-#{$key}-light-#{$i}{
+                color: mix(white, $val, $i * 10) // It means mix the white color in $val color with $i*10 percentage.
+            }
+        }
+    } 
+>> @for loop is written inside @each loop hence for each color @for loop will run 9 times and will generate 9 light variations of the color. Where 1 is less lighter and 9 is most lighter.
+
+
+How to mix any color with any color in different proprtions?
+Ans --> mix(white, red, 10) --> It means mix 10% white color in red color 

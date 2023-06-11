@@ -1,0 +1,32 @@
+// How to iterate over maps:
+// Following code will assign dynamic key and its dynamic value.
+@each $key, $val in $colors{
+    .text-#{$key}{ // #{$key} it means adding variable in the css selector
+        color: $val
+    }
+
+    .bg-#{$key}{
+        background-color: $val;
+    }
+
+    // Using @for loop for repeating 9 times:
+    @for $i from 1 through 9 {
+        // Creating light variations of the colors: 1 is least light and 9 is most light:
+        .text-#{$key}-light-#{$i} {
+            color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+        }
+        .bg-#{$key}-light-#{$i} {
+            background-color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+        }
+    }
+    
+    // Creating dark variations of the colors: 1 is least dark and 9 is most dark:
+    @for $i from 1 through 9 {
+        .text-#{$key}-dark-#{$i} {
+            color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+        }
+        .bg-#{$key}-dark-#{$i} {
+            background-color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+        }
+    }
+}
