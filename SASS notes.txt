@@ -256,3 +256,22 @@ You can also set the default value for parameter:
     .btn-#{$key}{
         @include btn; // not passing argument hence default value will be used for background-color
     }
+
+
+
+Function:
+>> Difference between function and mixin is mixin groups the common properties and provides them wherever required it may have argument or not. But function is the one which may or may not have argument but it RETURNS ONLY SINGLE VALUE.
+    Example:
+    lighten ($val 5)
+    mix(white red 5)
+
+
+>> How to create the function?
+Create seperate file called _functions.scss and call it in index.scss.
+Create the function like this using @function and return value using @return 
+    Example:
+    @function light-comp($color) {
+        $complement: complement($color); // complement is the built in function of sass.
+        $light-complement: lighten($complement, 30%);
+        @return $light-complement;  // returning single value
+    }

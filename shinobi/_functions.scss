@@ -1,0 +1,6 @@
+// Creating light-comp function for demonstating functions:
+@function light-comp($color) {
+    $complement: complement($color); // complement is the built in function of sass.
+    $light-complement: lighten($complement, 30%);
+    @return $light-complement;  // returning single value
+}

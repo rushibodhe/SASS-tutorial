@@ -3,3 +3,8 @@ mix(white, red, 10) --> It means mix 10% white color in red color
 
 
 >> lighten:
+lighten(red, 30%) --> lightens red by 30%
+
+
+>> complement:
+complement(blue) --> creates complementary color to the blue color.
