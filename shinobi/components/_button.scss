@@ -1,0 +1,68 @@
+// Creatin "btn" mixin for common properties:
+@mixin btn($bg-color: #e2e2e2){ // added $bg-color param with default value of #e2e2e2
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    border: 0;
+    padding: $base-padding $base-padding * 2;
+    border-radius: $base-border-radius;
+    background-color: $bg-color;  // $bg-color will be set if any argument is passed while including btn mixin, else default value will be passed.
+}
+
+
+// mixin without parenthesis:
+.btn{
+    @include btn; // Now if we do not write parenthesis then default value will be set for background-color property
+}
+
+
+
+@each $key, $val in $colors{
+    .btn-#{$key} {
+        // Common proerties in both btn and btn-outlined class:
+        // text-decoration: none;
+        // cursor: pointer;
+        // display: inline-block;
+        // border: 0;
+        // padding: $base-padding $base-padding * 2;
+        // border-radius: $base-border-radius;
+
+        // mixin without argument:
+        // @include btn();  // including mixin
+        // background-color: $val;
+
+        // mixin with argument:
+        @include btn($val); // passing $val argument while including btn mixin
+
+        // Adding hover effect:
+        &:hover{
+            background-color: lighten($val, 5);
+        }
+    }
+
+    .btn-outlined-#{$key} {
+        // Common proerties in both btn and btn-outlined class:
+        // text-decoration: none;
+        // cursor: pointer;
+        // display: inline-block;
+        // border: 0;
+        // padding: $base-padding $base-padding * 2;
+        // border-radius: $base-border-radius;
+
+        // mixin without any argument:
+        // @include btn(); // including mixin
+        // background-color: #fff;
+        // border: $base-border-thickness solid $val;
+        
+        // mixin with argument:
+        @include btn(#fff); // passing #fff argument while including btn mixin
+        border: $base-border-thickness solid $val;
+
+        // Adding hover effect:
+        &:hover{
+            background-color: $val;
+        }
+
+    }
+
+}

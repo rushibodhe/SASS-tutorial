@@ -144,8 +144,7 @@ How to iterate through the map:
 >> @for loop is written inside @each loop hence for each color @for loop will run 9 times and will generate 9 light variations of the color. Where 1 is less lighter and 9 is most lighter.
 
 
-How to mix any color with any color in different proprtions?
-Ans --> mix(white, red, 10) --> It means mix 10% white color in red color 
+
 
 
 @if and @else conditional statements:
@@ -169,4 +168,91 @@ Parent selector:
         &:hover{            // It means add hover effect to the .text-hover-#{$key} selector.
             color: $val
         }
+    }
+
+
+
+
+
+Mixin:
+>> When you are creating two different utility classes like btn and btn-outline and properties of both the classes are almost same except 1 2 differences then instead of repeating those common properties again we can use mixins.
+    Example:
+    .btn-#{$key} {
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        padding: $base-padding $base-padding * 2;
+        border-radius: $base-border-radius;
+        background-color: $val;
+    }
+
+    .btn-outlined-#{$key} {
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        padding: $base-padding $base-padding * 2;
+        border-radius: $base-border-radius;
+        background-color: #fff;
+        border: $base-border-thickness solid $val;
+    }
+
+>> btn and btn-outlined has almost all properties same instead background-color and border.
+>> Hence we can create mixin for those common properties and rewrite above code like this:
+    @mixin btn(){
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        padding: $base-padding $base-padding * 2;
+        border-radius: $base-border-radius;
+    }
+
+    .btn-#{$key}{
+        @include btn();
+        background-color: $val;
+    }
+
+    .btn-outlined-#{$key}{
+        @include btn();
+        background-color: #fff;
+        border: $base-border-thickness solid $val;
+    }
+
+
+
+You can also pass the argument to the mixin:
+    Example:
+    @mixin btn($bg-color){ // creating $bg-color parameter which will add for background-color property
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        padding: $base-padding $base-padding * 2;
+        border-radius: $base-border-radius;
+        background-color: $bg-color;
+    }
+
+    .btn-#{$key}{
+        @include btn($val); // passing argument $val which will become the background-color
+    }
+
+
+
+You can also set the default value for parameter:
+>> When you do not pass any argument while including the mixin then the default value will be passed.
+    Example:
+    @mixin btn($bg-color: #e2e2e2){ 
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+        border: 0;
+        padding: $base-padding $base-padding * 2;
+        border-radius: $base-border-radius;
+        background-color: $bg-color;
+    }
+
+    .btn-#{$key}{
+        @include btn; // not passing argument hence default value will be used for background-color
     }
