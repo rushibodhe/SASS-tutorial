@@ -275,3 +275,7 @@ Create the function like this using @function and return value using @return
         $light-complement: lighten($complement, 30%);
         @return $light-complement;  // returning single value
     }
+
+
+How to create the utility classes?
+>> refere _utilities.scss inside shinobi folder.
