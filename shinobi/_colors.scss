@@ -1,5 +1,6 @@
 // How to iterate over maps:
 // Following code will assign dynamic key and its dynamic value.
+// Using @each method to iterate over the map:
 @each $key, $val in $colors{
     .text-#{$key}{ // #{$key} it means adding variable in the css selector
         color: $val
@@ -8,6 +9,15 @@
     .bg-#{$key}{
         background-color: $val;
     }
+
+
+    // Using parent selcector (&) for adding effects to the parent:
+    .text-hover-#{$key}{
+        &:hover{ // This will add hover effect in the .text-hover-#{$key} class
+            color: $val;
+        }
+    }
+
 
     // Using @if conditional operator:
     @if ($val != black and $val != white){ // Added this because we dont want to create the dark and light variations of the black and white color
@@ -18,8 +28,15 @@
             .text-#{$key}-light-#{$i} {
                 color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
             }
+
             .bg-#{$key}-light-#{$i} {
                 background-color: mix(white, $val, $i * 10); // It means mix the white color in $val color with $i*10 percentage.
+            }
+
+            .text-hover-#{$key}-light-#{$i}{
+                &:hover{ // This will add hover effect in the .text-hover-#{$key} class
+                    color: mix(white, $val, $i * 10); 
+                }
             }
         }
         
@@ -30,6 +47,12 @@
             }
             .bg-#{$key}-dark-#{$i} {
                 background-color: mix(black, $val, $i * 10); // It means mix the black color in $val color with $i*10 percentage.
+            }
+
+            .text-hover-#{$key}-dark-#{$i}{
+                &:hover{ // This will add hover effect in the .text-hover-#{$key} class
+                    color: mix(black, $val, $i * 10); 
+                }
             }
         }
     }

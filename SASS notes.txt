@@ -160,3 +160,13 @@ Example:
             color: green;
         }
     }
+
+
+Parent selector:
+>> We need parent selector so that we can addi hover and other effects to the parent.
+    Example:
+    .text-hover-#{$key}{
+        &:hover{            // It means add hover effect to the .text-hover-#{$key} selector.
+            color: $val
+        }
+    }
