@@ -277,5 +277,13 @@ Create the function like this using @function and return value using @return
     }
 
 
+
+
 How to create the utility classes?
 >> refere _utilities.scss inside shinobi folder.
+
+
+
+Media queries in sass: (Not understood properly)
+>> We can create media queries using @mixin and @content.
+>> @content means --> In addition to taking arguments, a mixin can take an entire block of styles, known as a content block. A mixin can declare that it takes a content block by including the @content at-rule in its body. The content block is passed in using curly braces like any other block in Sass, and it’s injected in place of the @content rule.
