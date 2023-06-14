@@ -326,3 +326,15 @@ How to avoid the utility class getting compiled in the final .css file?
 >> Now in this case we have used .display-flex utility class for creating the navbar. But it will get compiled and it will be shown inside index.css file which we dont want.
 Hence, .display-flex utility class can be made a placeholder class using % instead. 
 ie %display-flex 
+
+
+
+>> Note:
+When you write the #about in the anchor tag's href tag and create the id with same name and if we click the href tag then it will redirected to the about section.
+
+
+
+Purging css: 
+>> In this we remove all unnecessarry styles from the style sheet. 
+>> For this we need to install npm install gulp-purgecss --save-dev.
+>> Then add some code in the gulpfile. refer gulpfile.js for more details.
