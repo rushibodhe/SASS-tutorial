@@ -291,3 +291,38 @@ Media queries in sass: (Not understood properly)
 
 Grid layout:
 >> Refer _grid.scss file
+
+
+@extend:
+>> It is same as mixin ie. when we want to copy and paste all the properties from other utility classes then we use @extend.
+>> Main difference between @mixin and @extend is:
+    >> We cannot pass the arguments to the @extend like @mixin.
+    >> The way with which it is compiled in the css is different that the mixin. ie 
+       If we use mixin in new utility class then it has rules defined in the mixin + rules that we define in the new class.
+       But in extend it addds the name of new utility class by seperating it with comma.
+        >> Example:
+            .flex-layout{
+                display: flex
+            }
+
+            .navbar{
+                @extend .flex-layout
+                padding: 5px,
+                margin: 5px
+            }
+
+            Above sass code compiles into below css code: 
+
+            .flex-layout, .navbar{ // it creates comma seperated class in which we have used @extend method.
+                display: flex
+            }
+            .navbar{
+                padding: 5px,
+                margin: 5px
+            }
+            
+
+How to avoid the utility class getting compiled in the final .css file?
+>> Now in this case we have used .display-flex utility class for creating the navbar. But it will get compiled and it will be shown inside index.css file which we dont want.
+Hence, .display-flex utility class can be made a placeholder class using % instead. 
+ie %display-flex 
