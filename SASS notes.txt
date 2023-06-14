@@ -338,3 +338,14 @@ Purging css:
 >> In this we remove all unnecessarry styles from the style sheet. 
 >> For this we need to install npm install gulp-purgecss --save-dev.
 >> Then add some code in the gulpfile. refer gulpfile.js for more details.
+
+
+
+How to use shinobi library in the personal projects?
+>> For this you need to first create the sass folder inside your personal project directory then you need to update the gulpfile.js by replacing shinobi with sass inside buildStyles and watchTask file.
+>> Then inside sass folder you can create the index.scss file and inside that you can write your customised styles and for adding all shinobi styles you need to import the shinobi/index.scss file in it.
+Note: You need to import index.scss of shinobi folder but even if you write just @import 'shinobi' it will automatically import the index.scss file.
+
+How to override the shinobi css variables?
+>> For overriding the shonobi variables we need to firstly define the variables first and then we need to import the shinobi library and also we need to use !default in the shinobi's variable's value.
+>> Due to writing !default it will allow use to override the value.
